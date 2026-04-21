@@ -10,8 +10,8 @@ const StarRating = ({ totalStars = 5 }) => {
         setRating(totalStars)
     }
   return (
-    <div style={styles.container}>
-        <div style={styles.stars}>
+    <div className="star-rating-container">
+        <div className="star-rating-stars">
             {star.map((_, index) => {
                 const starValue = index + 1
                 return (
@@ -20,43 +20,14 @@ const StarRating = ({ totalStars = 5 }) => {
                     onClick={() => handleClick(starValue)}
                     size={40}
                     color={starValue <= rating ? "#ffc107" : "#e4e5e9"}
-                    style={styles.star}
+                    className="star-rating-star"
                     />
                 )
             })}
         </div>
-        <div style={styles.text}>Total bintang: {rating}</div>
+        <div className="star-rating-text">Total bintang: {rating}</div>
     </div>
   )
-}
-
-const styles = {
-  container: {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    gap: "16px",
-    padding: "32px 48px",
-    backgroundColor: "#fff",
-    borderRadius: "16px",
-    boxShadow: "0 4px 24px rgba(0, 0, 0, 0.08)",
-    fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
-  },
-  stars: {
-    display: "flex",
-    gap: "8px",
-  },
-  star: {
-    cursor: "pointer",
-    transition: "transform 0.15s ease, color 0.15s ease",
-  },
-  text: {
-    fontSize: "16px",
-    fontWeight: "500",
-    color: "#666",
-    letterSpacing: "0.5px",
-    textTransform: "uppercase",
-  },
 }
 
 export default StarRating
